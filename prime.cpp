@@ -1,7 +1,7 @@
 #include "type.h"
 #include "prime.h"
 
-namespace native_crypto {
+namespace naive_crypto {
   u64 rand() {
     return (u64(::rand()) << 32) + std::rand();
   }

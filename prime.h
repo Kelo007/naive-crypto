@@ -3,7 +3,7 @@
 #include "type.h"
 
 
-namespace native_crypto {
+namespace naive_crypto {
   template <typename T>
   T gcd(const T &a, const T &b) {
     if (b == 0) {

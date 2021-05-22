@@ -5,13 +5,13 @@
 
 using test_fn = void (*)();
 void test_prime() {
-  using namespace native_crypto;
+  using namespace naive_crypto;
 
   assert(gcd(1, 1) == 1);
   assert(gcd(2, 3) == 1);
   assert(gcd(3, 6) == 3);
   assert(gcd(30, 24) == 6);
-  assert(native_crypto::rand() >= 0);
+  assert(naive_crypto::rand() >= 0);
   assert(add_mod(100, 2, 2000) == 102);
   assert(add_mod(4574937543, 238479234, 1000007) == 383086);
   assert(multiply_mod(2, 3, 2) == 0);
