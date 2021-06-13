@@ -19,6 +19,8 @@ namespace naive_crypto {
   u64 power_mod(u64, u64, u64);
   bool miller_rabin(u64);
   u64 generate_prime();
+  u128 exgcd(u128, u128, u128 &, u128 &);
+  u128 reverse(u128, u128);
 }
 
 
