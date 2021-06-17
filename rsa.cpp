@@ -3,7 +3,7 @@
 #include "prime.h"
 #include "type.h"
 using namespace naive_crypto;
-const int MAX_LENGTH = 1024;
+const int MAX_LENGTH = 1024 * 1024;
 char message[MAX_LENGTH];
 char encryption[MAX_LENGTH];
 char decryption[MAX_LENGTH];
@@ -25,7 +25,7 @@ int main() {
   d = reverse(e, phi);
   std::cout << "e = " << e << ", d = " << d << std::endl;
   std::cout << "Please input message to be encrypted: ";
-  std::cin >> message;
+  std::cin.getline(message, MAX_LENGTH);
   int len = strlen(message);
   // 32 bit
   for (int i = 0; i < len; i += 4) {
@@ -36,7 +36,11 @@ int main() {
     *((u64 *)(&encryption[i * 2])) = y;
     *((u32 *)(&decryption[i])) = z;
   }
-  std::cout << "The encryption is: " << encryption << std::endl;
+  std::cout << "The encryption is: ";
+  for (int i = 0; i < len; i += 4) {
+    std::cout << *((u64 *)(&encryption[i * 2]));
+  }
+  std::cout << std::endl;
   std::cout << "The decryption is: " << decryption << std::endl;
   return 0;
 }
